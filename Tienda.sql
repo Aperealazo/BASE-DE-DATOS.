@@ -1,5 +1,4 @@
-CREATE database TIENDA;
-USE TIENDA;
+
 DROP TABLE IF EXISTS Compras;
 DROP TABLE IF EXISTS Empleados;
 DROP TABLE IF EXISTS Productos;
@@ -39,7 +38,7 @@ CREATE TABLE Compras (
     FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
 );
 
--- Inserción de datos ficticios en la tabla Clientes
+-- Inserción de datos  en la tabla Clientes
 INSERT INTO Clientes (ID_Cliente, Nombre, Email, Telefono)
 VALUES
     (1, 'Juan Pérez', 'juan@email.com', '123-456-7890'),
@@ -50,7 +49,7 @@ VALUES
     (6, 'Sofía Fernández', 'sofia@email.com', '678-901-2345'),
     (7, 'Javier Torres', 'javier@email.com', '789-012-3456');
 
--- Inserción de datos ficticios en la tabla Productos
+-- Inserción de datos  en la tabla Productos
 INSERT INTO Productos (ID_Producto, Nombre_Producto, Precio, Stock)
 VALUES
     (1, 'Producto A', 50.99, 100),
@@ -61,7 +60,7 @@ VALUES
     (6, 'Producto F', 20.99, 120),
     (7, 'Producto G', 42.50, 60);
 
--- Inserción de datos ficticios en la tabla Empleados
+-- Inserción de datos  en la tabla Empleados
 INSERT INTO Empleados (ID_Empleado, Nombre, Departamento)
 VALUES
     (1, 'Ana García', 'Ventas'),
@@ -71,7 +70,7 @@ VALUES
     (5, 'Carmen López', 'Desarrollo'),
     (10, 'Jorge Pérez', 'Gerencia');
 
--- Inserción de datos ficticios en la tabla Compras
+-- Inserción de datos  en la tabla Compras
 INSERT INTO Compras (ID_Compra, ID_Cliente, ID_Producto, Cantidad, Fecha_Compra)
 VALUES
     (1, 1, 1, 2, '2023-09-01'),
