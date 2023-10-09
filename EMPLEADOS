@@ -1,0 +1,36 @@
+-- Crear la base de datos empleados
+CREATE DATABASE empleados;
+
+-- Usar la base de datos empleados
+USE empleados;
+
+-- Crear la tabla departamento
+CREATE TABLE departamento (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    edificio VARCHAR(50),
+    piso INT
+);
+
+-- Crear la tabla empleado
+CREATE TABLE empleado (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    dni VARCHAR(15),
+    departamento_id INT,
+    FOREIGN KEY (departamento_id) REFERENCES departamento(id)
+);
+-- Insertar datos en la tabla departamento
+INSERT INTO departamento (id, nombre, edificio, piso) VALUES
+(1, 'Departamento A', 'Edificio 1', 5),
+(2, 'Departamento B', 'Edificio 2', 3),
+(3, 'Departamento C', 'Edificio 3', 7);
+
+-- Insertar datos en la tabla empleado
+INSERT INTO empleado (id, nombre, apellido, dni, departamento_id) VALUES
+(1, 'Juan', 'Pérez', '123456789', 1),
+(2, 'María', 'Gómez', '234567890', 2),
+(3, 'Carlos', 'Martínez', '345678901', 3),
+(4, 'Laura', 'López', '456789012', 1),
+(5, 'Pedro', 'Rodríguez', '567890123', 2);
