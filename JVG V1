@@ -1,0 +1,59 @@
+create database jvg_1;
+use jvg_1;
+CREATE TABLE Partidos (
+    ID_Partido INT PRIMARY KEY,
+    Fecha DATE,
+    HoraInicio TIME,
+    HoraFin TIME
+);
+
+CREATE TABLE Equipos (
+    ID_Equipo INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Ciudad VARCHAR(100),
+    Estadio VARCHAR(100)
+);
+
+CREATE TABLE Jugadores (
+    ID_Jugador INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    Equipo_ID INT,
+    Posicion VARCHAR(50),
+    TarjetasAmarillas INT,
+    TarjetasRojas INT,
+    Goles INT,
+    FOREIGN KEY (Equipo_ID) REFERENCES Equipos(ID_Equipo)
+);
+
+CREATE TABLE Tecnicos (
+    ID_Tecnico INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    Equipo_ID INT,
+    FOREIGN KEY (Equipo_ID) REFERENCES Equipos(ID_Equipo)
+);
+
+CREATE TABLE ParticipacionEnPartidos (
+    ID_Participacion INT PRIMARY KEY,
+    Partido_ID INT,
+    Jugador_ID INT,
+    Equipo_ID INT,
+    TarjetasAmarillas INT,
+    TarjetasRojas INT,
+    Goles INT,
+    FOREIGN KEY (Partido_ID) REFERENCES Partidos(ID_Partido),
+    FOREIGN KEY (Jugador_ID) REFERENCES Jugadores(ID_Jugador),
+    FOREIGN KEY (Equipo_ID) REFERENCES Equipos(ID_Equipo)
+);
+
+CREATE TABLE FirmasYAclaraciones (
+    ID_Firma INT PRIMARY KEY,
+    Tipo VARCHAR(50),
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    Firma VARCHAR(200),
+    Aclaracion VARCHAR(200),
+    Partido_ID INT,
+    FOREIGN KEY (Partido_ID) REFERENCES Partidos(ID_Partido)
+);
